@@ -71,7 +71,19 @@ const InfoCards =
         subTitle: <p>Quando pressionado o "<strong>botão Leia</strong>" mais... informação deverá aparecer completa em um popup na tela.</p>,
         btn: 'Leia Mais...',
         btnName: 'modal',
-        description: 'Proident mollit irure duis incididunt nostrud do enim. Amet nostrud anim labore laborum ut occaecat. Enim cillum do sit aliquip esse incididunt labore anim sint reprehenderit mollit Lorem labore do.'
+        description: `
+        Consequat sunt exercitation ex eu eu eu exercitation laborum excepteur. 
+        Duis sit culpa ad veniam quis mollit deserunt deserunt reprehenderit anim. 
+        Velit irure consectetur sunt culpa aute dolore id eu consequat officia. 
+        Fugiat dolore consequat duis aute qui velit. 
+        Veniam veniam quis consectetur dolor in sint sit proident.
+
+        Duis reprehenderit sint adipisicing excepteur minim. 
+        Reprehenderit ipsum anim et laborum. Aliqua do quis aute amet.
+        Fugiat est commodo commodo quis in id eiusmod laborum do minim in magna sunt. 
+        Non dolore minim sint velit. 
+        Commodo proident anim cupidatat irure aliquip amet.
+        `
     },
     {
         img: imgCard3,
@@ -114,6 +126,8 @@ const Home = () => {
                         <Modal name="modal"
                             onClick={handCardsFn}
                             img={item.img}
+                            cor={item.color}
+                            title={item.title}
                             description={item.description} />
                         : <></>
                 ))

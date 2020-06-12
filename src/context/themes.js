@@ -20,6 +20,7 @@ export const light = {
     txtHoverColor: '#dcdc',
     bgContColor: '#fdfdfd',
     cardsBgTxtColor: '#fff',
+    bgModalColor: '#fffffff2'
 }
 
 export const dark = {
@@ -39,6 +40,7 @@ export const dark = {
     txtHoverColor: '#dcdc',
     bgContColor: '#fdfdfd',
     cardsBgTxtColor: '#3b3b3b',
+    bgModalColor: '#030303e6'
 }
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 const SNav = styled.nav`
@@ -11,7 +12,6 @@ const SUl = styled.ul`
     display:flex;
     letter-spacing: -0.2rem;
     font-size: 2.6rem;
-    color: ${({ theme }) => theme.navColor};
     text-transform: uppercase;
     transition: all 250ms linear 0s;
     @media(max-width:945px){
@@ -37,8 +37,13 @@ const SUl = styled.ul`
 const SLi = styled.li`
     list-style: none;
 `;
-const SA = styled.a`
+const SA = styled(Link)`
     padding: 10px;
+    letter-spacing: -0.2rem;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    text-decoration:none;
+    color: ${({ theme }) => theme.navColor};
     &:hover {
         color:${({ theme }) => theme.navHoverColor};
         cursor: pointer;
@@ -95,6 +100,7 @@ ${props => {
 
 
 
+
 const Nav = ({ items }) => {
     const [booToggle, setBooToggle] = useState("");
     function handToggle() {
@@ -112,7 +118,9 @@ const Nav = ({ items }) => {
 
                 <SUl>
                     {items.map((item, i) => {
-                        return <SLi key={i}><SA>{item}</SA></SLi>
+                        return <SLi key={i}>
+                            <SA to={'/' + String(item).toLowerCase()}>{item}</SA>
+                        </SLi>
                     })}
                 </SUl>
 

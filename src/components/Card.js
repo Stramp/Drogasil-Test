@@ -40,7 +40,7 @@ const SBox = styled.div`
     overflow: ${({ value }) => value === 'none' ? 'scroll' : 'unset'};
     overflow-x:hidden;
     height:auto;
-    max-height: ${({ value }) => value === 'none' ? '194px' : '0'};
+    max-height: ${({ value }) => value === 'none' ? '185px' : '0'};
     transition: all 0.3s ease 0s;
     -ms-overflow-style: none;
     @media(max-width:945px){
@@ -111,7 +111,7 @@ const Card = ({ src, color, description, title, subTitle, name, onClick, btnTxt,
                     onClick={e => onClick(e)}
                     cor={color}
                     id={name}
-                    value={expand}>{btnTxt}</SBtn>
+                    value={expand}>{expand === 'none' ? 'Voltar' : btnTxt}</SBtn>
             </SBox>
         </StyledCard>
     )

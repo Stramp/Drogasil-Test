@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,7 +25,9 @@ const SImg = styled.img`
 
 const Header = ({ children }) => (
     <StyledHeader>
-        <SImg src={logo} />
+        <Link to='/'>
+            <SImg src={logo} />
+        </Link>
         {children}
 
     </StyledHeader>
