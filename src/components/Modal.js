@@ -9,17 +9,32 @@ const StyledModal = styled.div`
   right: 0px;
   left: 0px;
   bottom: 0px;
-
+  display:flex;
+  justify-content: center;
+  align-items: center;
 `
+const SBox = styled.div`
+    background: #fff;
+    border: 1px solid;
+    border-radius:5px;
+    width: 75vw;
+    min-width: 400px;
+    max-width: 900px;
+    height: 60vh;
+    box-shadow:fff;
 
-const Modal = ({ children, onClick, ds, name }) => (
+`;
+
+const Modal = ({ onClick, name }) => (
     <StyledModal
         onClick={onClick}
-        value={ds}
+
         id={name}>
 
+        <SBox>
+            teste
+        </SBox>
 
-        {children}
 
     </StyledModal>
 )

@@ -51,7 +51,18 @@ const InfoCards =
         title: 'Site Responsivo DESKTOP',
         subTitle: <p>Quando pressionado o botão <b>Leia mais...</b> o restante da informação deverá aparecer em scroll down.</p>,
         btn: 'Leia Mais...',
-        btnName: 'scrolldown'
+        btnName: 'scrolldown',
+        description: `LoremElit officia officia voluptate aliquip ex  
+        
+        cupidatat pariatur nisi non ipsum non tempor consectetur. Laboris nulla p
+        
+        
+        ariatur officia quis ea. Nulla sint aliquip id minim mollit elit non ullamco voluptate magna 
+        
+        
+        id. Ea amet tempor veniam aute consequat commodo. Exercitation proident aute consectetur occaecat.
+        
+        Exercitation anim id tempor do et pariatur do eu ut.`
     },
     {
         img: imgCard2,
@@ -59,7 +70,8 @@ const InfoCards =
         title: 'Site Responsivo TABLET',
         subTitle: <p>Quando pressionado o "<strong>botão Leia</strong>" mais... informação deverá aparecer completa em um popup na tela.</p>,
         btn: 'Leia Mais...',
-        btnName: 'modal'
+        btnName: 'modal',
+        description: 'Proident mollit irure duis incididunt nostrud do enim. Amet nostrud anim labore laborum ut occaecat. Enim cillum do sit aliquip esse incididunt labore anim sint reprehenderit mollit Lorem labore do.'
     },
     {
         img: imgCard3,
@@ -74,32 +86,42 @@ const InfoCards =
 const Home = () => {
     const { handleThemeChange } = useTheme();
     const [popModal, setPopModal] = useState(false);
-    const [expand, setExpand] = useState(true);
+    const [expand, setExpand] = useState('none');
+    const [scrollD, setScrollD] = useState('');
 
+
+    // essa
     function handCardsFn(e) {
-        console.log(e.target.id, '00022222000')
         if (e.target.id === 'modal') return setPopModal(!popModal);
         else if (e.target.id === 'tema') return handleThemeChange();
         else if (e.target.id === 'scrolldown') {
-            console.log(e.target.value, '11111111')
-            // if (e.target.value) e.target.value ? e.target.value = "none" : e.target.value = "block";
-            //e.target.value === "none" ? e.target.value = "none" : e.target.value = "block";
-            if (e.target.value === "red") {
-                e.target.value = "black";
-                setExpand("")
+            setScrollD('scrolldown');
+            if (e.target.value === 'none') {
+                setExpand('block')
+
             } else {
-                e.target.value = "red";
-                setExpand("red")
+                setExpand('none');
             }
-            console.log(e.target.value, '2222')
         }
     }
     return (
         <SHome>
-            {popModal ? <Modal
-                name="modal"
-                onClick={handCardsFn}
-                ds={expand} /> : <></>}
+
+
+            {popModal ?
+                InfoCards.map((item, i) => (
+                    item.btnName === 'modal' ?
+                        <Modal name="modal"
+                            onClick={handCardsFn}
+                            img={item.img}
+                            description={item.description} />
+                        : <></>
+                ))
+
+                : <></>
+
+            }
+
             <Header>
                 <Nav items={['HTML5', 'CSS3', 'JAVASCRIPT', 'REACT', 'REDUX']} />
             </Header>
@@ -122,18 +144,14 @@ const Home = () => {
                                 btnTxt={item.btn}
                                 name={item.btnName}
                                 onClick={handCardsFn}
-                                ds={item.btnName === 'scrolldown' ? expand : undefined}>
+                                expand={item.btnName === scrollD ? expand : undefined}
+                                description={item.description}>
 
                             </Card>
                         ))
                     }
 
                 </SecCards>
-
-
-
-
-
             </Main>
             <Footer>Footer</Footer>
         </SHome >

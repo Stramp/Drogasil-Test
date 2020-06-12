@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-
 const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
@@ -16,6 +15,9 @@ const StyledCard = styled.div`
 const SImage = styled.figure`
     overflow: hidden;
     margin: 15px auto 0px auto;
+    height:auto;
+    max-height: ${({ value }) => value === 'none' ? '100px' : '150px'};
+    transition: all 0.3s ease 0s;
 `;
 const SImg = styled.img`
     width: 100%;
@@ -24,7 +26,9 @@ const SImg = styled.img`
 const SBox = styled.div`
     width: 100%;
     background-color:${({ theme }) => theme.cardsBgTxtColor};
-    padding: 1rem 1.5rem 1rem 1.5rem ;
+    padding: ${({ value }) => value === 'none' ? '6rem' : '1rem'}
+    ${({ value }) => value === 'none' ? '3rem' : '1.5rem'}
+     1rem 1.5rem ;
     text-align: justify;
     min-height:150px;
     font-weight:300;
@@ -33,16 +37,23 @@ const SBox = styled.div`
     display: flex;
     flex-direction:column;
     justify-content: space-around;
-    
+    overflow: ${({ value }) => value === 'none' ? 'scroll' : 'unset'};
+    overflow-x:hidden;
     height:auto;
+    max-height: ${({ value }) => value === 'none' ? '194px' : '0'};
+    transition: all 0.3s ease 0s;
+    -ms-overflow-style: none;
     @media(max-width:945px){
         font-size: 1.3rem;
         line-height:1.4rem;
         font-weight: 400;
     }
+    &:-webkit-scrollbar{
+        display:none;
+    }
 `;
 const SBtn = styled.button`
-    background-color: ${props => props.cor};
+    background-color: ${({ cor }) => cor};
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: -0.05rem;
@@ -55,7 +66,7 @@ const SBtn = styled.button`
     border:0;
     align-self: flex-end;
     color: ${({ theme }) => theme.btnCardsTxtColor};
-    display: ${({ expand }) => expand ? 'block' : 'none'};
+    
     &:hover{
         cursor:pointer;
         text-decoration-line:underline;
@@ -85,21 +96,22 @@ const SH3 = styled.h3`
 `;
 
 
-const Card = ({ src, color, title, subTitle, name, onClick, btnTxt, ds }) => {
-    console.log('card>>>>', ds, name)
+const Card = ({ src, color, description, title, subTitle, name, onClick, btnTxt, expand }) => {
+    console.log('card>>>>', expand, name, description)
     return (
         <StyledCard color={color}>
-            <SImage>
+            <SImage value={expand}>
                 <SImg src={src} />
             </SImage>
             <SH3> {title}</SH3>
-            <SBox>
-                {subTitle}
+            <SBox value={expand}>
+
+                {expand !== 'none' ? subTitle : description}
                 <SBtn
                     onClick={e => onClick(e)}
                     cor={color}
                     id={name}
-                    value={ds}>{btnTxt}</SBtn>
+                    value={expand}>{btnTxt}</SBtn>
             </SBox>
         </StyledCard>
     )
