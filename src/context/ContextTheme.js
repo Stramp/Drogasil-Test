@@ -32,7 +32,7 @@ export const ThemeProvider = ({ children }) => {
 
     return (
         <Context.Provider value={{ handleThemeChange }} >
-            <Theme theme={isWhiteTheme ? dark : light} >
+            <Theme theme={!isWhiteTheme ? dark : light} >
                 {
                     children
                 }

@@ -124,6 +124,7 @@ const Home = () => {
                 InfoCards.map((item, i) => (
                     item.btnName === 'modal' ?
                         <Modal name="modal"
+                            value={popModal}
                             onClick={handCardsFn}
                             img={item.img}
                             cor={item.color}
@@ -167,7 +168,7 @@ const Home = () => {
 
                 </SecCards>
             </Main>
-            <Footer>Footer</Footer>
+            <Footer />
         </SHome >
     );
 }

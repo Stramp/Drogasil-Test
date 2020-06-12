@@ -20,7 +20,6 @@ const SUl = styled.ul`
        position:fixed;
        right:0;
        top:110px;
-       color: ${({ theme }) => theme.navColorMob};
        background:${({ theme }) => theme.navColor};
        width:30vw; 
        min-width: 220px;
@@ -44,6 +43,10 @@ const SA = styled(Link)`
     text-transform: uppercase;
     text-decoration:none;
     color: ${({ theme }) => theme.navColor};
+    @media(max-width:945px){
+        color: ${({ theme }) => theme.navColorMob};
+        text-shadow:0 0 0;
+    }
     &:hover {
         color:${({ theme }) => theme.navHoverColor};
         cursor: pointer;

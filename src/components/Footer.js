@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import logo_small from '../assets/logo_small.png'
 import logo_drogaraia from '../assets/logo_drogaraia.png'
@@ -38,17 +39,33 @@ const SP = styled.p`
 const Logos = styled.div`
 `;
 
+const SA = styled.a`
+
+`;
+
 const Footer = () => (
     <StyledFooter>
         <SP>RD 2017 Todos direitos reservados</SP>
         <Logos>
-            <SImg src={logo_drogaraia} />
-            <SImg src={logo_drogasil} />
-            <SImg src={logo_farmasil} />
-            <SImg src={logo_univers} />
-            <SImg src={logo_4bio} />
+            <SA href="https://www.drogaraia.com.br/" target="_blank">
+                <SImg src={logo_drogaraia} />
+            </SA>
+            <SA href="https://www.drogasil.com.br/" target="_blank">
+                <SImg src={logo_drogasil} />
+            </SA>
+            <SA href="http://www.farmasil.com.br/" target="_blank">
+                <SImg src={logo_farmasil} />
+            </SA>
+            <SA href="https://univers-pbm.com.br/beneficioMedicamentos/" target="_blank">
+                <SImg src={logo_univers} />
+            </SA>
+            <SA href="https://www.4bio.com.br/" target="_blank">
+                <SImg src={logo_4bio} />
+            </SA>
         </Logos>
-        <SImg src={logo_small} />
+        <Link to="/">
+            <SImg src={logo_small} />
+        </Link>
 
 
     </StyledFooter>

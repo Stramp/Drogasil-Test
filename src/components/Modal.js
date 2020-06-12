@@ -11,6 +11,7 @@ const StyledModal = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
+  z-index: 999;
 `
 const SBox = styled.div`
     background: ${({ theme }) => theme.cardsBgTxtColor};
@@ -21,6 +22,9 @@ const SBox = styled.div`
     max-width: 900px;
     height: 60vh;
     display:flex;
+    @media(max-width: 438px){
+        min-width: 80%;
+    }
 
 `;
 const SBoxImg = styled.div`
@@ -34,7 +38,11 @@ const SBoxImg = styled.div`
 `;
 const SBoxTxt = styled.div`
     width:50%; 
-    padding: 0 50px 0 50px;;
+    padding: 30px;
+    
+
+
+
     color: ${({ theme }) => theme.txtColor};
     text-shadow:0 0 0;
     align-items : center; 
@@ -42,6 +50,8 @@ const SBoxTxt = styled.div`
     flex-direction:column;
     font-size: 1.5rem;
     justify-content: center ;
+    overflow-x:hidden;
+    overflow:${({ value }) => !value ? 'scroll' : 'unset'};
 `;
 const SImg = styled.img`
     width:100%;
@@ -78,9 +88,13 @@ color:${({ theme }) => theme.btnCardsTxtColor};
 text-shadow:0 0 0;
 font-size: 3rem;
 font-weight: 300;
+text-align:center;
+@media(max-width: 492px){
+    font-size: 1.5rem;
+    }
 `;
 
-const Modal = ({ onClick, name, img, description, title, cor }) => (
+const Modal = ({ onClick, name, img, description, title, cor, value }) => (
     <StyledModal
         onClick={onClick}
 
@@ -97,6 +111,7 @@ const Modal = ({ onClick, name, img, description, title, cor }) => (
                     onClick={onClick}
                     cor={cor}
                     id={name}
+                    value={value}
                 >voltar</SBtn>
             </SBoxTxt>
         </SBox>

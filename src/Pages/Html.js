@@ -9,8 +9,6 @@ import Footer from '../components/Footer';
 
 
 
-
-
 const SHome = styled.div`
     background            : url(${({ theme }) => theme.bgImg});
     height:100vh;
@@ -41,8 +39,7 @@ const SImg = styled.img`
 
 
 
-
-const Css = () => {
+const Html = () => {
 
 
     // essa
@@ -54,11 +51,11 @@ const Css = () => {
                 <Nav items={['HTML5', 'CSS3', 'JAVASCRIPT', 'REACT', 'REDUX']} />
             </Header>
             <Main >
-                <SImg src='https://cdn.worldvectorlogo.com/logos/css-5.svg' />
+                <SImg src='https://cdn.worldvectorlogo.com/logos/html-5.svg' />
             </Main>
             <Footer />
         </SHome >
     );
 }
 
-export default Css;
+export default Html;
