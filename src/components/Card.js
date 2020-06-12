@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import SP from './styled-elements/SP'
+import SH3 from './styled-elements/SH3'
 
 
 const StyledCard = styled.div`
@@ -26,9 +28,7 @@ const SImg = styled.img`
 const SBox = styled.div`
     width: 100%;
     background-color:${({ theme }) => theme.cardsBgTxtColor};
-    padding: ${({ value }) => value === 'none' ? '6rem' : '1rem'}
-    ${({ value }) => value === 'none' ? '3rem' : '1.5rem'}
-     1rem 1.5rem ;
+    padding: 1.5rem;
     text-align: justify;
     min-height:150px;
     font-weight:300;
@@ -37,10 +37,8 @@ const SBox = styled.div`
     display: flex;
     flex-direction:column;
     justify-content: space-around;
-    overflow: ${({ value }) => value === 'none' ? 'scroll' : 'unset'};
-    overflow-x:hidden;
     height:auto;
-    max-height: ${({ value }) => value === 'none' ? '185px' : '0'};
+    max-height: ${({ value }) => value === 'none' ? '187px' : '0'};
     transition: all 0.3s ease 0s;
     -ms-overflow-style: none;
     @media(max-width:945px){
@@ -79,21 +77,8 @@ const SBtn = styled.button`
 
 
 
-const SH3 = styled.h3`
-    color: ${({ theme }) => theme.titleCardsColor};
-    font-size: 2.5rem;
-    font-weight: 300;
-    letter-spacing: -0.0625rem;
-    text-shadow: none;
-    text-align: center;
-    line-height:3rem;
-    margin: 15px 0 15px 0; 
-    @media(max-width:1025px){
-        font-size: 2.2rem;
-        line-height:2.5rem;
-        font-weight: 400;
-    }
-`;
+
+
 
 
 const Card = ({ src, color, description, title, subTitle, name, onClick, btnTxt, expand }) => {
@@ -105,8 +90,9 @@ const Card = ({ src, color, description, title, subTitle, name, onClick, btnTxt,
             </SImage>
             <SH3> {title}</SH3>
             <SBox value={expand}>
-
-                {expand !== 'none' ? subTitle : description}
+                <SP value={expand}>
+                    {expand !== 'none' ? subTitle : description}
+                </SP>
                 <SBtn
                     onClick={e => onClick(e)}
                     cor={color}

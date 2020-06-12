@@ -20,7 +20,7 @@ import imgCard3 from '../assets/mobile-responsive-design.png'
 
 
 
-
+// estilizando div container geral
 
 const SHome = styled.div`
     background            : url(${({ theme }) => theme.bgImg});
@@ -43,7 +43,7 @@ const SHome = styled.div`
 
 
 
-
+// definindo conteudo dinamico para os cards
 const InfoCards =
     [{
         img: imgCard1,
@@ -54,6 +54,8 @@ const InfoCards =
         btnName: 'scrolldown',
         description: `LoremElit officia officia voluptate aliquip ex  
         
+        cupidatat pariatur nisi non ipsum non tempor consectetur. Laboris nulla p cupidatat pariatur nisi non ipsum non tempor consectetur. Laboris nulla p
+        cupidatat pariatur nisi non ipsum non tempor consectetur. Laboris nulla p
         cupidatat pariatur nisi non ipsum non tempor consectetur. Laboris nulla p
         
         
@@ -96,13 +98,15 @@ const InfoCards =
 
 
 const Home = () => {
+    // states controladores
     const { handleThemeChange } = useTheme();
     const [popModal, setPopModal] = useState(false);
     const [expand, setExpand] = useState('none');
     const [scrollD, setScrollD] = useState('');
 
 
-    // essa
+    // ouvidor de eventos dos cards 
+    // aqui ainda cabe algumas refatorações
     function handCardsFn(e) {
         if (e.target.id === 'modal') return setPopModal(!popModal);
         else if (e.target.id === 'tema') return handleThemeChange();
@@ -117,6 +121,7 @@ const Home = () => {
         }
     }
     return (
+        //verificando entrada de Modal PopUp atraves da variavel popModal do tipo boolean
         <SHome>
 
 
@@ -147,7 +152,7 @@ const Home = () => {
                 </SecTitle>
                 <SecCards>
 
-                    {
+                    {//caregando info cards de acordo com a lista e enviando para eles seus parametros
                         InfoCards.map((item, i) => (
 
                             <Card

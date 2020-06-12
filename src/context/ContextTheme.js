@@ -13,8 +13,7 @@ import { dark, light } from './themes'
 
 const Context = createContext({
     handleThemeChange: () => { },
-    outra: (texto) => { },
-    texto: ''
+
 });
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import SP from './styled-elements/SP'
+import SH3 from './styled-elements/SH3'
 
 
 const StyledModal = styled.div`
@@ -50,12 +52,10 @@ const SBoxTxt = styled.div`
     flex-direction:column;
     font-size: 1.5rem;
     justify-content: center ;
-    overflow-x:hidden;
-    overflow:${({ value }) => !value ? 'scroll' : 'unset'};
 `;
 const SImg = styled.img`
     width:100%;
-    padding:15px;
+    padding:5px;
 `;
 
 const SBtn = styled.button`
@@ -83,16 +83,7 @@ const SBtn = styled.button`
     
 `;
 
-const SH3 = styled.h3`
-color:${({ theme }) => theme.btnCardsTxtColor};
-text-shadow:0 0 0;
-font-size: 3rem;
-font-weight: 300;
-text-align:center;
-@media(max-width: 492px){
-    font-size: 1.5rem;
-    }
-`;
+
 
 const Modal = ({ onClick, name, img, description, title, cor, value }) => (
     <StyledModal
@@ -106,7 +97,8 @@ const Modal = ({ onClick, name, img, description, title, cor, value }) => (
                 <SH3>{title}</SH3>
             </SBoxImg>
             <SBoxTxt>
-                {description}
+                <SP value={value}>
+                    {description}</SP>
                 <SBtn
                     onClick={onClick}
                     cor={cor}

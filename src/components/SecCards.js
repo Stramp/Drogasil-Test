@@ -17,7 +17,9 @@ const StyledSecCards = styled.section`
 `
 
 const SecCards = ({ children }) => (
-    <StyledSecCards>{children}</StyledSecCards>
+    <StyledSecCards>
+        {children}
+    </StyledSecCards>
 )
 
 export default SecCards;
