@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ThemeContex from './context/ContextTheme'
+import { ThemeProvider as ThemeContex } from './context/ContextTheme'
 
 
 ReactDOM.render(

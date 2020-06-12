@@ -12,8 +12,11 @@ import { ThemeProvider as Theme } from 'styled-components';
 import { dark, light } from './themes'
 
 const Context = createContext({
-    handleThemeChange: () => { }
+    handleThemeChange: () => { },
+    outra: (texto) => { },
+    texto: ''
 });
+
 
 
 
@@ -26,10 +29,14 @@ export const ThemeProvider = ({ children }) => {
         return setIsWhiteTheme(!isWhiteTheme)
     }
 
+
     return (
-        <Context.Provider value={{}} >
-
-
+        <Context.Provider value={{ handleThemeChange }} >
+            <Theme theme={isWhiteTheme ? dark : light} >
+                {
+                    children
+                }
+            </Theme>
         </Context.Provider>
     )
 }

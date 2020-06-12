@@ -2,14 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const StyledContainer = styled.main`
-width:100vw;
-height:100vh;
-display: flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-background:${({ theme }) => theme.bgContColor};
+const StyledContainer = styled.div`
+    width: 980px;
+    margin: auto;
+    display: flex;
+    flex-direction:column;
+    
 `
 
 const Container = ({ children }) => (
