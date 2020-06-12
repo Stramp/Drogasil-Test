@@ -91,7 +91,7 @@ const Home = () => {
                 e.target.value = "red";
                 setExpand("red")
             }
-            console.log(e.target.value, '22222222')
+            console.log(e.target.value, '2222')
         }
     }
     return (
